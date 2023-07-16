@@ -161,7 +161,7 @@ struct ContentView: View {
                                     Text("Let's personalize your experience!")
                                         .font(.custom("Arial", fixedSize: 25))
                                         .bold()
-                                    Text("Pick 3 categories to continue")
+                                    Text("Pick at least 3 categories to continue")
                                         .font(.custom("Arial", fixedSize: 20))
                                     HStack {
                                         Button("Bikes") {
