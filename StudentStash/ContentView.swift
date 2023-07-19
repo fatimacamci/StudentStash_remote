@@ -47,8 +47,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 VStack{
                     Text("Welcome to Student Stash!")
-                        .font(.custom("Arial", fixedSize: 25)
-                        )
+                        .font(.custom("Arial", fixedSize: 25))
                         .bold()
                         .padding()
                     TextField("Username", text:$username)
@@ -76,7 +75,7 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(15) */
                         // redirects to another page
-                        NavigationLink("LOG IN",destination: MainScreen())
+                        NavigationLink("LOG IN",destination: MainScreen(first: $firstName, last: $lastName, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password))
                         Button("Sign Up"){
                             showSignupSheet.toggle()
                         }

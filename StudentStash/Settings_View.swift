@@ -1,16 +1,14 @@
-//
-//  Settings_View.swift
-//  StudentStash
-//
-//  Created by Fatima Camci on 7/18/23.
-//
-
 import SwiftUI
 
 struct Settings_View: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        ZStack{
+            Color.white
+            Image(systemName: "gearshape")
+                .foregroundColor(Color.black)
+                .font(.system(size:100.0))
+        }
+}
 }
 
 struct Settings_View_Previews: PreviewProvider {
