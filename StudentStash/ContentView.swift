@@ -28,14 +28,14 @@ struct ContentView: View {
     @State private var interests = []
     
     //variables to check if buttons are pressed in the interests sheet
-    @State private var bikeButtonPressed = false
+    @State private var bicyclesButtonPressed = false
     @State private var vehiclesButtonPressed = false
     @State private var electronicsButtonPressed = false
     @State private var clothesButtonPressed = false
     @State private var homeGoodsButtonPressed = false
     @State private var furnitureButtonPressed = false
-    @State private var add1ButtonPressed = false
-    @State private var add2ButtonPressed = false
+    @State private var booksButtonPressed = false
+    @State private var subleaseButtonPressed = false
     @State private var add3ButtonPressed = false
     
     
@@ -153,6 +153,7 @@ struct ContentView: View {
                                 .frame(width: 200, height: 50)
                                 .background(Color.blue)
                                 .cornerRadius(15)
+                                
                             }
                             
                             //layout for the second sheet, showing the interests page
@@ -164,14 +165,14 @@ struct ContentView: View {
                                     Text("Pick at least 3 categories to continue")
                                         .font(.custom("Arial", fixedSize: 20))
                                     HStack {
-                                        Button("Bikes") {
-                                            bikeButtonPressed.toggle()
-                                            interests.append("Bikes")
+                                        Button("Bicycles") {
+                                            bicyclesButtonPressed.toggle()
+                                            interests.append("Bicycles")
                                         }
                                         .font(.custom("Bebas Neue", fixedSize: 20))
                                         .foregroundColor(.white)
                                         .frame(width: 100, height: 100)
-                                        .background(bikeButtonPressed ? Color.gray : Color.black)
+                                        .background(bicyclesButtonPressed ? Color.gray : Color.black)
                                         .cornerRadius(15)
                                         
                                         Button("Vehicles") {
@@ -226,24 +227,24 @@ struct ContentView: View {
                                     }
                                     //IMPORTANT: CHANGE THE NAMES OF THE BUTTON CHECKER BOOLEANS WHEN RENAMING THE BUTTONS
                                     HStack {
-                                        Button("Add more") {
-                                            add1ButtonPressed.toggle()
-                                            interests.append("add more")
+                                        Button("Books") {
+                                            booksButtonPressed.toggle()
+                                            interests.append("Books")
                                         }
                                         .font(.custom("Bebas Neue", fixedSize: 20))
                                         .foregroundColor(.white)
                                         .frame(width: 100, height: 100)
-                                        .background(add1ButtonPressed ? Color.gray : Color.black)
+                                        .background(booksButtonPressed ? Color.gray : Color.black)
                                         .cornerRadius(15)
                                         
-                                        Button("Add more") {
-                                            add2ButtonPressed.toggle()
-                                            interests.append("add more")
+                                        Button("Sublease") {
+                                            subleaseButtonPressed.toggle()
+                                            interests.append("Sublease")
                                         }
                                         .font(.custom("Bebas Neue", fixedSize: 20))
                                         .foregroundColor(.white)
                                         .frame(width: 100, height: 100)
-                                        .background(add2ButtonPressed ? Color.gray : Color.black)
+                                        .background(subleaseButtonPressed ? Color.gray : Color.black)
                                         .cornerRadius(15)
                                         
                                         Button("Add more") {
@@ -259,8 +260,7 @@ struct ContentView: View {
                                     Button("Confirm") {
                                         showInterestsSheet.toggle()
                                         showSignupSheet.toggle()
-                                        //MUST take user to the main page
-                                        //CONTINUE HERE
+                                        //navigates to log in page for user to log in
                                     }
                                     .font(.custom("Bebas Neue", fixedSize: 20))
                                     .foregroundColor(.white)

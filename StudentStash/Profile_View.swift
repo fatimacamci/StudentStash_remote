@@ -11,6 +11,8 @@ struct Profile_View: View {
     @Binding var major: String
     @Binding var password: String
     
+    @State var hiddenPassword: String
+    
     var body: some View {
         ZStack{
             Color.white
@@ -39,10 +41,24 @@ struct Profile_View: View {
                         .font(.custom("Arial", fixedSize: 17))
                     Text("Major: \(major)")
                         .font(.custom("Arial", fixedSize: 17))
-                    //should password be displayed or be **** ?
-                    Text("Password: \(password)")
+                    // password ****
+                    Text("Password: \(hiddenPassword)")
                         .font(.custom("Arial", fixedSize: 17))
                 }
+                .onAppear {
+                    hiddenPassword = String(repeating: "*", count: password.count)
+                }
+                //changes the hiddenPassword when the password changes
+                .onChange(of: password) { newValue in
+                    if newValue.count >= hiddenPassword.count {
+                        hiddenPassword = String(repeating: "*", count: password.count)
+                    } else {
+                        hiddenPassword.removeLast()
+                        hiddenPassword.append("*")
+                    }
+                }
+
+
                 //to center align the button
                 HStack(alignment: .center) {
                     Spacer()
@@ -71,6 +87,6 @@ struct Profile_View: View {
 
 struct Profile_View_Previews: PreviewProvider {
     static var previews: some View {
-        Profile_View(first: .constant("joe"), last: .constant("doe"), number: .constant("1234567890"), address: .constant("123 Main St"), username: .constant("user 1"), age: .constant("25"), major: .constant("Engineering"), password: .constant("mypassword"))
+        Profile_View(first: .constant("joe"), last: .constant("doe"), number: .constant("1234567890"), address: .constant("123 Main St"), username: .constant("user 1"), age: .constant("25"), major: .constant("Engineering"), password: .constant("mypassword"), hiddenPassword: "***")
     }
 }
