@@ -40,7 +40,7 @@ struct MainScreen: View {
                     Image(systemName:"gearshape")
                     Text("Settings")
                 }
-            Profile_View(first: $first, last: $last, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password, hiddenPassword: "***")
+            Profile_View(first: $first, last: $last, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password)
                 .tabItem(){
                     Image(systemName:"person.crop.circle")
                     Text("Profile")
