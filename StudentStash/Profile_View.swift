@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct Profile_View: View {
@@ -10,6 +9,9 @@ struct Profile_View: View {
     @Binding var age: String
     @Binding var major: String
     @Binding var password: String
+    @State var changeProfileImage = false
+    @State var openCameraRoll = false
+    @State var imageSelected = UIImage()
     
     @State var hiddenPassword = ""
     @State private var showEditScreen = false
@@ -18,9 +20,32 @@ struct Profile_View: View {
         ZStack{
             Color.white
             VStack(alignment: .leading, spacing: 40) {
-                Image(systemName: "person.crop.circle")
-                    .foregroundColor(Color.black)
-                    .font(.system(size:100.0))
+                ZStack(alignment:.bottomTrailing){
+                Button(action: {
+                    changeProfileImage = true
+                    openCameraRoll = true
+                }, label: {
+                    if changeProfileImage {
+                        Image(uiImage:imageSelected)
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                            .clipShape(Circle())
+                    }
+                    else{
+                        Image(systemName: "person.crop.circle")
+                            .foregroundColor(Color.black)
+                            .font(.system(size:100.0))
+                }
+                })
+                    Image(systemName: "plus")
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                        .offset(x:-6, y:-7)
+                }.sheet(isPresented:$openCameraRoll){
+                    ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
+                }
                 //contains name and username
                 VStack (alignment: .leading, spacing: 5){
                     Text("\(first) \(last)")
@@ -171,3 +196,4 @@ struct Profile_View_Previews: PreviewProvider {
         Profile_View(first: .constant("joe"), last: .constant("doe"), number: .constant("1234567890"), address: .constant("123 Main St"), username: .constant("user 1"), age: .constant("25"), major: .constant("Engineering"), password: .constant("mypassword"))
     }
 }
+
