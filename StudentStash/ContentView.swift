@@ -36,7 +36,7 @@ struct ContentView: View {
     @State private var furnitureButtonPressed = false
     @State private var booksButtonPressed = false
     @State private var subleaseButtonPressed = false
-    @State private var add3ButtonPressed = false
+    @State private var accessoriesButtonPressed = false
     
     
     var body: some View {
@@ -247,14 +247,14 @@ struct ContentView: View {
                                         .background(subleaseButtonPressed ? Color.gray : Color.black)
                                         .cornerRadius(15)
                                         
-                                        Button("Add more") {
-                                            add3ButtonPressed.toggle()
+                                        Button("Accessories") {
+                                            accessoriesButtonPressed.toggle()
                                             interests.append("add more")
                                         }
                                         .font(.custom("Bebas Neue", fixedSize: 20))
                                         .foregroundColor(.white)
                                         .frame(width: 100, height: 100)
-                                        .background(add3ButtonPressed ? Color.gray : Color.black)
+                                        .background(accessoriesButtonPressed ? Color.gray : Color.black)
                                         .cornerRadius(15)
                                     }
                                     Button("Confirm") {

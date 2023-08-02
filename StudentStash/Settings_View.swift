@@ -11,6 +11,9 @@ struct Settings_View: View {
     @State private var publicPicture = false
     @State private var enableMessageNotifications = false
     @State private var enableNewUploadNotifications = false
+    
+    @State private var isShowingPopUp = false
+    
     var body: some View {
         ZStack{
             Color.white
@@ -74,6 +77,13 @@ struct Settings_View: View {
                     .cornerRadius(15)
                     .padding()
                 }
+                Button("Log Out") {
+                    //add a pop up with two options: log out and stay signed in
+                    isShowingPopUp = true
+                }
+                .fullScreenCover(isPresented: $isShowingPopUp, content: {
+                            PopUpView(isPresented: $isShowingPopUp)
+                        })
                 
             }
             .font(.custom("Bebas Neue", fixedSize: 20))
@@ -88,3 +98,39 @@ struct Settings_View_Previews: PreviewProvider {
         Settings_View()
     }
 }
+
+struct PopUpView: View {
+    @Binding var isPresented: Bool
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.4).edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("Do you want to log out?")
+                    .font(.headline)
+                    .padding()
+
+                HStack(spacing: 20) {
+                    Button("Log Out") {
+                        isPresented = false // Close the pop-up after handling the action
+                        
+                    }
+                    .frame(maxWidth: 100)
+                    .padding()
+
+                    Button("Stay Signed In") {
+                        isPresented = false // Close the pop-up after handling the action
+                    }
+                    .frame(maxWidth: 100)
+                }
+                .padding()
+
+            }
+            .background(Color.white)
+            .cornerRadius(10)
+            .padding()
+        }
+    }
+}
+
+
