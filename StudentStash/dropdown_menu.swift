@@ -34,7 +34,7 @@ struct CustomDropdownMenu: View {
         VStack {
             HStack {
                 Text(selectionTitle)
-                    .font(.custom("Bebas Neue", size: 15))
+                    .font(.custom("Arial", size: 15))
                     .font(.system(size: 15, weight: .semibold, design: .rounded))
 
                 Spacer()
@@ -51,11 +51,11 @@ struct CustomDropdownMenu: View {
 
                 VStack(spacing: 5) {
                     DropdownMenuItemView(isSelecting: $isSelecting, selectiontitle: $selectionTitle, selectionId: $selectedRowId, item: .init(id: 1, title: "Used", onSelect: {}))
-                        .font(.custom("Bebas Neue", size: 15))
+                        .font(.custom("Arial", size: 15))
                     DropdownMenuItemView(isSelecting: $isSelecting, selectiontitle: $selectionTitle, selectionId: $selectedRowId, item: .init(id: 2, title: "New", onSelect: {}))
-                        .font(.custom("Bebas Neue", size: 15))
+                        .font(.custom("Arial", size: 15))
                     DropdownMenuItemView(isSelecting: $isSelecting, selectiontitle: $selectionTitle, selectionId: $selectedRowId, item: .init(id: 3, title: "Fairly New", onSelect: {}))
-                        .font(.custom("Bebas Neue", size:15))
+                        .font(.custom("Arial", size:15))
                 }
 
             }
@@ -64,7 +64,7 @@ struct CustomDropdownMenu: View {
         .frame(maxWidth: 300)
         .padding(.vertical)
         .background(Color(uiColor:.white))
-        .border(.black)
+        .border(.gray)
         .onTapGesture {
             isSelecting.toggle()
         }
@@ -86,3 +86,4 @@ struct CustomDropdownMenu_Previews:PreviewProvider{
             .padding(.horizontal)
     }
 }
+
