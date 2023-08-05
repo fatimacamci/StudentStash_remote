@@ -17,18 +17,18 @@ struct Settings_View: View {
     var body: some View {
         ZStack{
             Color.white
-            
-            /* Image(systemName: "gearshape")
-                .foregroundColor(Color.black)
-                .font(.system(size:100.0)) */
-            VStack(alignment: .leading, spacing: 20) {
-                HStack {
-                    Spacer()
-                    Text("Settings")
-                        .font(.custom("Bebas Neue", fixedSize: 30))
-                    Spacer()
-                }
-                .padding(.bottom, 30)
+                    VStack(alignment: .center, spacing: 20) {
+                        Image("StudentStash_Logo")
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                        
+                        HStack {
+                            Spacer()
+                            Text("Settings")
+                                .font(.custom("Bebas Neue", fixedSize: 30))
+                            Spacer()
+                        }
+                        .padding(.bottom, 30)
                 Button("Terms of Use") {
                     showTerms.toggle()
                 }
