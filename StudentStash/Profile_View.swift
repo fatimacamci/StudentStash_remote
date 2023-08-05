@@ -92,17 +92,19 @@ struct Profile_View: View {
                     Button("Edit Profile") {
                         showEditScreen.toggle()
                     }
-                        .font(.custom("Bebas Neue", fixedSize: 20))
-                        .foregroundColor(.white)
-                        .frame(width: 110, height: 40)
-                        .background(Color.blue)
-                        .cornerRadius(15)
+                    .font(.custom("Bebas Neue", fixedSize: 20))
+                    .foregroundColor(.black)
+                    .frame(width: 110, height: 40)
+                    .background(Color(red: 254/255, green: 166/255, blue: 237/255)) // Button background color
+                    .cornerRadius(15)
+
                     
                         .sheet(isPresented: $showEditScreen) {
                             ScrollView {
                                 Text("Edit Profile")
-                                    .font(.custom("Arial", fixedSize: 25))
+                                    .font(.custom("Bebas Neue", fixedSize: 25))
                                     .bold()
+                                    .foregroundColor(Color(red: 254/255, green: 166/255, blue: 237/255))
                                 VStack(alignment: .leading, spacing: 15) {
                                     HStack {
                                         Text("First Name:")
@@ -111,7 +113,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     
                                     HStack {
                                         Text("Last Name:")
@@ -120,7 +122,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     HStack {
                                         Text("Phone Number:")
                                             .frame(width: 110, height: 30)
@@ -128,7 +130,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     HStack {
                                         Text("Address:")
                                             .frame(width: 110, height: 30)
@@ -136,7 +138,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     HStack {
                                         Text("Age:")
                                             .frame(width: 110, height: 30)
@@ -144,7 +146,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     HStack {
                                         Text("Major:")
                                             .frame(width: 110, height: 30)
@@ -152,7 +154,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     HStack {
                                         Text("Password:")
                                             .frame(width: 110, height: 30)
@@ -160,7 +162,7 @@ struct Profile_View: View {
                                             .frame(width: 150, height: 30)
                                             .background(Color.black.opacity(0.05))
                                     }
-                                    .font(.custom("Arial", fixedSize: 15))
+                                    .font(.custom("Bebas Neue", fixedSize: 15))
                                     
                                 }
                                 
@@ -168,11 +170,12 @@ struct Profile_View: View {
                                     showEditScreen.toggle()
                                 }
                                 .font(.custom("Bebas Neue", fixedSize: 20))
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .frame(width: 150, height: 40)
-                                .background(Color.blue)
+                                .background(Color(red: 254/255, green: 166/255, blue: 237/255)) // Change the button color here
                                 .cornerRadius(15)
                                 .padding(.top, 20)
+
                             }
                             // adds space above the scrollview
                             .padding(.top, 20)
@@ -196,4 +199,3 @@ struct Profile_View_Previews: PreviewProvider {
         Profile_View(first: .constant("joe"), last: .constant("doe"), number: .constant("1234567890"), address: .constant("123 Main St"), username: .constant("user 1"), age: .constant("25"), major: .constant("Engineering"), password: .constant("mypassword"))
     }
 }
-
