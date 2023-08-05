@@ -1,10 +1,3 @@
-//
-//  MainScreen.swift
-//  StudentStash
-//
-//  Created by Fatima Camci on 7/18/23.
-//
-
 import SwiftUI
 
 struct MainScreen: View {
@@ -22,6 +15,7 @@ struct MainScreen: View {
             View_Home()
                 .tabItem(){
                     Image(systemName: "house.fill")
+                        .foregroundColor(Color(red: 255 / 255.0, green: 225 / 255.0, blue: 132 / 255.0))
                     Text("Home")
                 .navigationBarBackButtonHidden(true)
                 }
@@ -30,7 +24,7 @@ struct MainScreen: View {
                     Image(systemName:"message.circle.fill")
                     Text("Message")
                 }
-            Post_View()
+           Post_View()
                 .tabItem(){
                     Image(systemName:"plus.app")
                     Text("Upload")
@@ -47,9 +41,18 @@ struct MainScreen: View {
                 }
             }
         .navigationBarBackButtonHidden(true)
-        //.edgesIgnoringSafeArea(.top)
+        .tabViewStyle(DefaultTabViewStyle()) // Use the default tab style
+        .onAppear {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 254/255, green: 166/255, blue: 237/255, alpha: 1.0) // RGB color (255, 225, 132)
+            appearance.selectionIndicatorTintColor = .white // Change the tab selection indicator color
+
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
         }
-    }
+            }
+        }
 
 
 struct MainScreen_Previews: PreviewProvider {
