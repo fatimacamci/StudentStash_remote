@@ -16,7 +16,7 @@ struct Post_View: View {
             Color.white
             VStack(alignment: .center, spacing:5) {
                 Text("Upload")
-                    .font(.custom("Bebas Neue", size:18))
+                    .font(.custom("Arial", size:18))
             Button(action: {
             ProfileImage = true
             CameraRoll = true
@@ -45,54 +45,38 @@ struct Post_View: View {
         ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
         }
             VStack(alignment: .leading, spacing:10){
-                Text("Product Name")
-                    .font(.custom("Bebas Neue", size: 18))
-                TextField("", text: $product_name)
-                    .font(.custom("Bebas Neue", size: 18))
+                TextField("Product Name", text: $product_name)
+                    .font(.custom("Arial", fixedSize: 15))
                     .padding()
-                    .frame(width: 300, height: 40)
-                    .background(.white)
-                    .cornerRadius(5)
-                    .border(.black)
-                
-                Text("Price")
-                    .font(.custom("Bebas Neue", size:18))
-                TextField("", text: $price)
-                    .font(.custom("Bebas Neue", size: 18))
+                    .frame(width: 300, height: 50)
+                    .background(Color.black.opacity(0.05))
+                TextField("Price", text: $price)
+                    .font(.custom("Arial", fixedSize: 15))
                     .padding()
-                    .frame(width: 300, height: 40)
-                    .background(.white)
-                    .cornerRadius(5)
-                    .border(.black)
-                
-                Text("Condition")
-                    .font(.custom("Bebas Neue", size:18))
+                    .frame(width: 300, height: 50)
+                    .background(Color.black.opacity(0.05))
                 CustomDropdownMenu()
             }
-                VStack(alignment: .leading, spacing:10) {
-                    Text("Description")
-                        .font(.custom("Bebas Neue", size: 18))
-                    TextField("", text: $description)
-                        .font(.custom("Bebas Neue", size: 18))
+                VStack(alignment: .leading, spacing:20) {
+                    TextField("Description", text: $description)
+                        .font(.custom("Arial", fixedSize: 15))
                         .padding()
-                        .frame(maxWidth:300)
-                        .background(.white)
-                        .cornerRadius(5)
-                        .border(.black)
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
                     Text("Category")
-                        .font(.custom("Bebas Neue", size:18))
+                        .font(.custom("Arial", size:18))
                     CheckboxView()
                     }
                     Button("Upload"){
                         // Add code to handle the upload functionality
                     }
                     .font(.custom("Bebas Neue", fixedSize: 20))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .frame(width: 150, height: 40)
-                    .background(Color.black)
+                    .background(Color(red: 254/255, green: 166/255, blue: 237/255))
                     .cornerRadius(15)
             }
         }
@@ -138,7 +122,7 @@ struct CheckboxView: View {
                                 }
                             
                             Text(categories[index])
-                                .font(.custom("Bebas Neue", size:12))
+                                .font(.custom("Arial", size:12))
                         }
                         
                         if selectedStates[index], let subcategoryList = subcategories[categories[index]] {
@@ -153,7 +137,7 @@ struct CheckboxView: View {
                                         }
                                     
                                     Text(subcategoryList[subIndex])
-                                        .font(.custom("Bebas Neue", size:10))
+                                        .font(.custom("Arial", size:10))
                                 }
                             }
                         }
@@ -175,7 +159,7 @@ struct CheckboxView: View {
                                 }
                             
                             Text(categories[index])
-                                .font(.custom("Bebas Neue", size:12))
+                                .font(.custom("Arial", size:12))
                         }
                         
                         if selectedStates[index], let subcategoryList = subcategories[categories[index]] {
@@ -190,7 +174,7 @@ struct CheckboxView: View {
                                         }
                                     
                                     Text(subcategoryList[subIndex])
-                                        .font(.custom("Bebas Neue", size:9))
+                                        .font(.custom("Arial", size:9))
                                 }
                             }
                         }
