@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct Subcategory: Identifiable {
     let id = UUID()
@@ -16,11 +17,11 @@ struct SubcategoryItem: View {
         }) {
             HStack {
                 Image(systemName: isChecked ? "checkmark.square" : "square")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .imageScale(.medium)
 
                 Text(title)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .font(.custom("Bebas Neue", size: 12))
 
                 Spacer()
@@ -41,17 +42,17 @@ struct CategoryView: View {
         VStack {
             HStack {
                 Image(systemName: iconSystemName)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .imageScale(.large)
 
                 Text(categoryName)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .font(.custom("Bebas Neue", size: 15))
 
                 Spacer()
 
                 Image(systemName: isExpanded ? "minus.circle" : "plus.circle")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .imageScale(.medium)
                     .onTapGesture {
                         isExpanded.toggle()
@@ -71,18 +72,15 @@ struct CategoryView: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.black, .black]),
-                startPoint: .leading,
-                endPoint: .trailing
-            )
+            Color(red: 254 / 255.0, green: 166 / 255.0, blue: 237 / 255.0)
+                .edgesIgnoringSafeArea(.all)
         )
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct MenuView: View {
     var body: some View {
+        //ScrollView{
         VStack(spacing:1) {
             CategoryView(
                 categoryName: "Bicycles",
@@ -99,9 +97,10 @@ struct MenuView: View {
             CategoryView(
                 categoryName: "Vehicles",
                 iconSystemName: "car.circle",
-                subcategories: [
-                    Subcategory(name: "Subcategory 1", isCompleted: false),
-                    Subcategory(name: "Subcategory 2", isCompleted: true)
+               subcategories: [
+                    Subcategory(name: "Cars", isCompleted: false),
+                    Subcategory(name: "Motorcycles", isCompleted: true),
+                    Subcategory(name: "Scooters", isCompleted: false)
                 ]
             )
             .padding(.bottom, 0)
@@ -109,8 +108,8 @@ struct MenuView: View {
                 categoryName: "Books",
                 iconSystemName: "book.circle",
                 subcategories: [
-                    Subcategory(name: "Subcategory 1", isCompleted: false),
-                    Subcategory(name: "Subcategory 2", isCompleted: true)
+                    Subcategory(name: "School Books", isCompleted: false),
+                    Subcategory(name: "Regular Books", isCompleted: true)
                 ]
             )
             .padding(.bottom, 0)
@@ -127,8 +126,17 @@ struct MenuView: View {
                 categoryName: "Clothes",
                 iconSystemName: "tshirt",
                 subcategories: [
-                    Subcategory(name: "Subcategory 1", isCompleted: false),
-                    Subcategory(name: "Subcategory 2", isCompleted: true)
+                    Subcategory(name: "Male", isCompleted: true),
+                    Subcategory(name: "Female", isCompleted: true),
+                    Subcategory(name: "Unisex", isCompleted: true),
+                    Subcategory(name: "Hats", isCompleted: false),
+                    Subcategory(name: "Jackets", isCompleted: true),
+                    Subcategory(name: "formal clothing", isCompleted: true),
+                    Subcategory(name: "Shirts", isCompleted: true),
+                    Subcategory(name: "Pants", isCompleted: true),
+                    Subcategory(name: "Scarfs", isCompleted: true),
+                    Subcategory(name: "Socks", isCompleted: true),
+                    
                 ]
             )
             .padding(.bottom, 0)
@@ -136,8 +144,10 @@ struct MenuView: View {
                 categoryName: "Home Goods",
                 iconSystemName: "house.circle",
                 subcategories: [
-                    Subcategory(name: "Subcategory 1", isCompleted: false),
-                    Subcategory(name: "Subcategory 2", isCompleted: true)
+                    Subcategory(name: "Living Room", isCompleted: false),
+                    Subcategory(name: "Kitchen", isCompleted: true),
+                    Subcategory(name: "Bathroom", isCompleted: true),
+                    Subcategory(name: "Bedroom", isCompleted: true),
                 ]
             )
             .padding(.bottom, 0)
@@ -145,8 +155,8 @@ struct MenuView: View {
                 categoryName: "Electronics",
                 iconSystemName: "tv.circle",
                 subcategories: [
-                    Subcategory(name: "Subcategory 1", isCompleted: false),
-                    Subcategory(name: "Subcategory 2", isCompleted: true)
+                    Subcategory(name: "Video Games", isCompleted: false),
+                    Subcategory(name: "Television", isCompleted: true)
                 ]
             )
             .padding(.bottom, 0)
@@ -154,8 +164,10 @@ struct MenuView: View {
                 categoryName: "Furniture",
                 iconSystemName: "bed.double.circle",
                 subcategories: [
-                    Subcategory(name: "Subcategory 1", isCompleted: false),
-                    Subcategory(name: "Subcategory 2", isCompleted: true)
+                    Subcategory(name: "Sofa", isCompleted: false),
+                    Subcategory(name: "Table", isCompleted: true),
+                    Subcategory(name: "Bed", isCompleted: true),
+                    Subcategory(name: "Chairs", isCompleted: true)
                 ]
             )
             .padding(.bottom, 0)
@@ -163,12 +175,13 @@ struct MenuView: View {
             // Add more CategoryViews for other categories
         }
         .padding()
-        .background(Color.black)
+        .background(
+            Color(red: 254 / 255.0, green: 166 / 255.0, blue: 237 / 255.0)
+                .edgesIgnoringSafeArea(.all)
+        )
+        .edgesIgnoringSafeArea(.all)
+            
+        //.background(Color.black)
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView()
-    }
-}
