@@ -1,12 +1,8 @@
-//
-//  ContentView.swift
-//  StudentStash
-//
-//  Created by Fatima Camci on 6/24/23.
-//
-
 import SwiftUI
 
+//struct CustomColor {
+    //static let myColor = Color("Gradient_Color")
+//}
 struct ContentView: View {
     @State private var username = ""
     @State private var password = ""
@@ -41,10 +37,18 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-        
             ZStack {
-                Color.white
+                Image("Gradient_Color")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
+                VStack(alignment: .center, spacing:20){
+                   Image("Logo")
+                        .resizable()
+                        .frame(width:150, height:150)
+                    Spacer()
+                }
+                .padding(.top,60)
                 VStack{
                     Text("Welcome to Student Stash!")
                         .font(.custom("Arial", fixedSize: 25))
@@ -75,14 +79,23 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(15) */
                         // redirects to another page
-                        NavigationLink("LOG IN",destination: MainScreen(first: $firstName, last: $lastName, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password))
+                        NavigationLink(
+                            destination: MainScreen(first: $firstName, last: $lastName, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password)
+                        ) {
+                            Text("Log In")
+                                .font(.custom("Bebas Neue", size: 22)) // Change "YourCustomFontName" to the desired font name
+                                .foregroundColor(.black)
+                        }
+
+                        /*NavigationLink("LOG IN",destination: MainScreen(first: $firstName, last: $lastName, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password))
+                        */
                         Button("Sign Up"){
                             showSignupSheet.toggle()
                         }
                         .font(.custom("Bebas Neue", fixedSize: 20))
                         .foregroundColor(.white)
                         .frame(width: 300, height: 40)
-                        .background(Color.black)
+                        .background(.black)
                         .cornerRadius(15)
                         
                         .sheet(isPresented: $showSignupSheet) {
@@ -143,15 +156,16 @@ struct ContentView: View {
                                         .frame(width: 300, height: 50)
                                         .background(Color.black.opacity(0.05))
                                 }
+                                
                                 Button("Next"){
                                     //line below commented out for ease of testing UNCOMMENT
                                     //verify_user(username: username, password: password)
                                     showInterestsSheet.toggle()
                                 }
                                 .font(.custom("Bebas Neue", fixedSize: 20))
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .frame(width: 200, height: 50)
-                                .background(Color.blue)
+                                .background(Color(red: 254/255, green: 166/255, blue: 237/255))
                                 .cornerRadius(15)
                                 
                             }
@@ -263,9 +277,9 @@ struct ContentView: View {
                                         //navigates to log in page for user to log in
                                     }
                                     .font(.custom("Bebas Neue", fixedSize: 20))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.black)
                                     .frame(width: 200, height: 50)
-                                    .background(Color.blue)
+                                    .background(Color(red: 254/255, green: 166/255, blue: 237/255))
                                     .cornerRadius(15)
                         }
                         
@@ -297,4 +311,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 
