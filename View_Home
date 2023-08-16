@@ -1,17 +1,9 @@
-//
-//  View_Home.swift
-//  Student__Stash (iOS)
-//
-//  Created by Samreen on 7/12/23.
-//
-
 import SwiftUI
 
 struct View_Home: View {
     @State var showMenu = false
     
     var body: some View {
-        
         let drag = DragGesture()
         .onEnded{
             if $0.translation.width < -100 {
@@ -36,14 +28,18 @@ struct View_Home: View {
             .gesture(drag)
 }
         .navigationBarTitle("", displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:EmptyView())
         .navigationBarItems(leading:(Button(action: {
             withAnimation{
                 self.showMenu.toggle()
             }
         }) {
+            HStack(spacing:5){
             Image(systemName: "list.bullet")
                 .imageScale(.large)
-                .foregroundColor(.blue)
+                .foregroundColor(.black)
+        }
         }
                                     ))
 }
