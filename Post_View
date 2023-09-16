@@ -57,7 +57,7 @@ struct Post_View: View {
                     .background(Color.black.opacity(0.05))
                 CustomDropdownMenu()
             }
-                VStack(alignment: .leading, spacing:40) {
+                VStack(alignment: .leading, spacing:20) {
                     TextField("Description", text: $description)
                         .font(.custom("Arial", fixedSize: 15))
                         .padding()
@@ -69,18 +69,16 @@ struct Post_View: View {
                     Text("Category")
                         .font(.custom("Arial", size:18))
                     CheckboxView()
-                    VStack(alignment: .center){
+                    }
                     Button("Upload"){
                         // Add code to handle the upload functionality
                     }
                     .font(.custom("Bebas Neue", fixedSize: 20))
                     .foregroundColor(.black)
                     .frame(width: 150, height: 40)
-                    .background(Color(red: 223/255, green: 135/255, blue: 228/255))
+                    .background(Color(red: 254/255, green: 166/255, blue: 237/255))
                     .cornerRadius(15)
             }
-            }
-        }
         }
     }
 
