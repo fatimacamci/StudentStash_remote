@@ -1,5 +1,5 @@
 import SwiftUI
-
+// integrated into post_view file for the selection of product condition
 struct DropdownMenuItemView: View {
     @Binding var isSelecting: Bool
     @Binding var selectiontitle: String
