@@ -2,6 +2,8 @@ import SwiftUI
 
 struct Messenger_View: View {
     var body: some View {
+        // we were planning on using rocket.chat
+        // database needs to be integrated and store the messages
         ZStack{
             Color.white
             Image(systemName: "message.circle.fill")
