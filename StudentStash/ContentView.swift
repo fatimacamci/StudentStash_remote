@@ -59,36 +59,24 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
-                        //.cornerRadius(5)
                         .border(.red, width: CGFloat(wrongUsername))
                     TextField("Password", text:$password)
                         .font(.custom("Arial", fixedSize: 15))
                         .padding()
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
-                        //.cornerRadius(5)
                         .border(.red, width: CGFloat(wrongPassword))
                     // once the user has created a profile, ask them to log in, so the log in button will lead to the main page
                     VStack(spacing:150){
-                        /* Button("Login"){
-                            verify_user(username: username, password: password)
-                        }
-                        .font(.custom("Bebas Neue", fixedSize: 20))
-                        .foregroundColor(.white)
-                        .frame(width: 200, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(15) */
                         // redirects to another page
                         NavigationLink(
                             destination: MainScreen(first: $firstName, last: $lastName, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password)
                         ) {
                             Text("Log In")
-                                .font(.custom("Bebas Neue", size: 22)) // Change "YourCustomFontName" to the desired font name
+                                .font(.custom("Bebas Neue", size: 22))
                                 .foregroundColor(.black)
                         }
 
-                        /*NavigationLink("LOG IN",destination: MainScreen(first: $firstName, last: $lastName, number: $number, address: $address, username: $username, age: $age, major: $major, password: $password))
-                        */
                         Button("Sign Up"){
                             showSignupSheet.toggle()
                         }
@@ -295,7 +283,9 @@ struct ContentView: View {
     }
 }
 
-//make sure the password and confirm password match
+    //make sure the password and confirm password match
+    //only checks if the email ends in .edu
+    //database is needed to verify log in information
     func verify_user(username:String, password:String){
         if (username.contains(".edu")){
             wrongUsername = 0
