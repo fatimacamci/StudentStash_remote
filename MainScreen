@@ -11,6 +11,8 @@ struct MainScreen: View {
     @Binding var password: String
     
     var body: some View {
+        // this is the bottom tab navigation
+        // the accent color (blue) needs to be updated to yellow from the assets tab
         TabView {
             View_Home()
                 .tabItem(){
@@ -45,7 +47,7 @@ struct MainScreen: View {
         .onAppear {
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor(red: 223/255, green: 135/255, blue: 228/255, alpha: 1.0) // RGB color (255, 225, 132)
+            appearance.backgroundColor = UIColor(red: 254/255, green: 166/255, blue: 237/255, alpha: 1.0)
             appearance.selectionIndicatorTintColor = .white // Change the tab selection indicator color
 
             UITabBar.appearance().standardAppearance = appearance
@@ -54,7 +56,7 @@ struct MainScreen: View {
             }
         }
 
-
+// doesn't do anything to the actual code, just useful when testing with preview
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
         MainScreen(first: .constant("jane"), last: .constant("doe"), number: .constant("1234567890"), address: .constant("456 Main St"), username: .constant("user 2"), age: .constant("25"), major: .constant("Engineering"), password: .constant("mypassword"))
