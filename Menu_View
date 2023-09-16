@@ -79,9 +79,9 @@ struct CategoryView: View {
 
 struct MenuView: View {
     var body: some View {
-        //ScrollView{
         VStack(spacing:1) {
             CategoryView(
+                // these symbols are from sf symbols beta
                 categoryName: "Bicycles",
                 iconSystemName: "bicycle.circle",
                 subcategories: [
@@ -123,6 +123,7 @@ struct MenuView: View {
             .padding(.bottom, 0)
             CategoryView(
                 categoryName: "Clothes",
+                // the tshirt icon needs to be custom made, with a circle around the shirt
                 iconSystemName: "tshirt",
                 subcategories: [
                     Subcategory(name: "Male", isCompleted: true),
@@ -183,6 +184,3 @@ struct MenuView: View {
     }
 }
 //}
-
-
-
